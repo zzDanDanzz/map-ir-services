@@ -28,8 +28,6 @@ export default defineConfig({
     host: true,
     cors: true,
   },
-  build: {
-    outDir: 'build',
-  },
   envPrefix: 'PUBLIC_',
+  base: '/nak-map-test'
 });
