@@ -1,0 +1,44 @@
+{
+  "name": "simple-front",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "deploy": "liara deploy --platform=react --app=mapir-simple-front-dev"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.17",
+    "@chakra-ui/react": "^2.5.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@types/geojson": "^7946.0.10",
+    "@types/osrm": "^5.25.2",
+    "framer-motion": "^10.2.3",
+    "jotai": "^2.0.3",
+    "maplibre-gl": "^2.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-modal-sheet": "^1.10.2",
+    "react-popper": "^2.3.0",
+    "react-resizable-panels": "^0.0.39",
+    "swr": "^2.1.0",
+    "use-deep-compare-effect": "^1.8.1"
+  },
+  "devDependencies": {
+    "@iconify-json/fluent": "^1.1.18",
+    "@svgr/core": "^7.0.0",
+    "@svgr/plugin-jsx": "^7.0.0",
+    "@svgr/rollup": "^6.5.1",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "typescript": "^4.9.3",
+    "unplugin-icons": "^0.16.1",
+    "vite": "^4.1.0",
+    "vite-plugin-checker": "^0.5.6",
+    "vite-tsconfig-paths": "^4.0.5"
+  }
+}
