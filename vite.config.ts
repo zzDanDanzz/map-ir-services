@@ -29,5 +29,5 @@ export default defineConfig({
     cors: true,
   },
   envPrefix: 'PUBLIC_',
-  base: '/nak-map-test'
+  base: '/map-ir-services'
 });
