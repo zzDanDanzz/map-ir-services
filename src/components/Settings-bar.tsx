@@ -6,6 +6,7 @@ import {
   StackDivider,
   Image,
   Grid,
+  Flex,
 } from '@chakra-ui/react';
 import { useAtom } from 'jotai';
 import {
@@ -72,48 +73,14 @@ export default function Settings({ width }: IProps) {
           لایه پس‌زمینه
         </Heading>
 
-        {/* <SimpleGrid columns={3} spacing={2}> */}
-        {/*   {mapStyles.map(({ id, name, previewSrc, scheme }) => ( */}
-        {/*     <Card */}
-        {/*       size="sm" */}
-        {/*       key={id} */}
-        {/*       onClick={() => { */}
-        {/*         if (mapStyle.id === id) return; */}
-        {/*         setMapStyle({ id, type: 'vector' }); */}
-        {/*       }} */}
-        {/*       sx={{ */}
-        {/*         boxShadow: mapStyle.id === id ? 'outline' : 'base', */}
-        {/*       }} */}
-        {/*     > */}
-        {/*       <Image src={previewSrc} /> */}
-        {/**/}
-        {/*       <CardBody> */}
-        {/*         <Heading size="sm">{name}</Heading> */}
-        {/**/}
-        {/*         {/* <Text py="2"> */}
-        {/*       Caffè latte is a coffee beverage of Italian origin made with */}
-        {/*       espresso and steamed milk. */}
-        {/*     </Text>  */}
-        {/*       </CardBody> */}
-        {/*     </Card> */}
-        {/*   ))} */}
-        {/* </SimpleGrid> */}
-
-        {/* <div className="flex flex-col gap-2"> */}
-        {/*   <span className="text-neutral-600">استایل‌های تصویر</span> */}
-        {/*   <div className="flex flex-wrap gap-1">{rasterStyles}</div> */}
-        {/*   <span className="text-neutral-600">استایل‌های بردار</span> */}
-        {/*   <div className="flex flex-wrap gap-1">{vectorStyles}</div> */}
-        {/* </div> */}
-
         <Heading size={'md'}>استایل‌های تصویر</Heading>
-        <Grid templateColumns="repeat(3, 1fr)" gap={3}>
+        <Flex wrap={'wrap'} gap={3}>
           {rasterStyles}
-        </Grid>
+        </Flex>
         <Heading size={'md'}>استایل‌های بردار</Heading>
-        <Grid templateColumns="repeat(3, 1fr)" gap={3}>
+        <Flex wrap={'wrap'} gap={3}>
           {vectorStyles}
-        </Grid>
+        </Flex>
       </Stack>
     </Stack>
   );
@@ -131,7 +98,7 @@ function MapStyleCard({
   onClick: () => void;
 }) {
   return (
-    <Card bg={active ? 'gray.100' : 'white'} onClick={onClick}>
+    <Card bg={active ? 'gray.100' : 'white'} onClick={onClick} maxW={'32'}>
       <CardBody p={'2'}>
         <Image src={imgSrc} borderRadius="lg" />
         <Heading size="xs" mt={'2'}>

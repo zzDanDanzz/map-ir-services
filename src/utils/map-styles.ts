@@ -67,6 +67,7 @@ export const styleNames: Record<SourceIDs, string> = {
 };
 
 export type MapStyleTypes = 'vector' | 'raster';
+
 export const mapStylesSources: { source: SourceIDs; type: MapStyleTypes }[] = [
   {
     source: 'mapir-xyz-style',

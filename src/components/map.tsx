@@ -15,6 +15,11 @@ import lightStylePreviewImageSrc from 'assets/images/styles-preview/light.webp';
 import darkStylePreviewImageSrc from 'assets/images/styles-preview/dark.webp';
 import minPoiStylePreviewImageSrc from 'assets/images/styles-preview/min-poi.webp';
 import doveStylePreviewImageSrc from 'assets/images/styles-preview/dove.webp';
+import {
+  generateMapStyle,
+  IMapStyle,
+  mapStylesSources,
+} from 'utils/map-styles';
 
 if (maplibre.getRTLTextPluginStatus() === 'unavailable')
   maplibre.setRTLTextPlugin(
@@ -83,16 +88,16 @@ export default function Map({}: IProps) {
 
   useEffect(() => {
     if (!map) return;
-    const style = mapStyles.find(({ id }) => id === mapStyle.id);
-    if (!style)
+    const styleSrc = mapStylesSources.find(
+      ({ source }) => source === mapStyle.source
+    );
+    if (!styleSrc)
       console.assert(false, {
         message: `style id specified (${mapStyle}) is not valid`,
       });
     else {
-      map.setStyle(style.url);
-      localStorage.setItem('map-style-id', style.id);
+      map.setStyle(generateMapStyle(styleSrc as IMapStyle) as any);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mapStyle]);
 
   useEffect(() => {
@@ -134,53 +139,3 @@ export default function Map({}: IProps) {
     </Box>
   );
 }
-
-interface IMapStyle {
-  id: string;
-  name: string;
-  src: string;
-  previewSrc: string;
-  scheme: 'light' | 'dark';
-  url: string;
-}
-
-export const mapStyles: IMapStyle[] = (
-  [
-    {
-      id: 'default',
-      name: 'پیش فرض',
-      // src: 'mapir-xyz-style.json',
-      src: 'mapir-xyz-no-building.json',
-      previewSrc: defaultStylePreviewImageSrc,
-      scheme: 'light',
-    },
-    {
-      id: 'light',
-      name: 'سبک',
-      src: 'mapir-xyz-light-style.json',
-      previewSrc: lightStylePreviewImageSrc,
-      scheme: 'light',
-    },
-    {
-      id: 'dark',
-      name: 'شب',
-      src: 'mapir-style-dark.json',
-      previewSrc: darkStylePreviewImageSrc,
-      scheme: 'dark',
-    },
-    {
-      id: 'min-poi',
-      name: 'کم جزئیات',
-      src: 'mapir-xyz-style-min-poi.json',
-      previewSrc: minPoiStylePreviewImageSrc,
-      scheme: 'light',
-    },
-    {
-      id: 'dove',
-      name: 'کبوتر',
-      src: 'mapir-Dove-style.json',
-      previewSrc: doveStylePreviewImageSrc,
-      scheme: 'light',
-    },
-  ] as Omit<IMapStyle, 'url'>[]
-).map((style) => ({ ...style, url: `${urls.tile}/styles/main/${style.src}` }));
