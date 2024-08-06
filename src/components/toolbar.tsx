@@ -31,6 +31,7 @@ import MyLocationIcon from '~icons/fluent/my-location-24-filled';
 import LayersIcon from '~icons/fluent/layer-24-filled';
 import SettingsIcon from '~icons/fluent/settings-24-filled';
 import { ReactComponent as GeocodeIcon } from 'assets/images/icons/geocode.svg';
+import logoUrl from 'assets/images/logo.svg';
 // import { ReactComponent as MyLocationIcon } from 'assets/images/icons/my-location.svg';
 // import { ReactComponent as SettingsIcon } from 'assets/images/icons/settings.svg';
 
@@ -204,7 +205,7 @@ export default function Toolbar() {
 
         <AspectRatio minW="100px" maxW="400px" ratio={40 / 11}>
           <Image
-            src="/logo.svg"
+            src={logoUrl}
             alt="logo"
             // objectFit="contain"
           />
