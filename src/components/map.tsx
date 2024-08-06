@@ -83,7 +83,7 @@ export default function Map({}: IProps) {
 
   useEffect(() => {
     if (!map) return;
-    const style = mapStyles.find(({ id }) => id === mapStyle);
+    const style = mapStyles.find(({ id }) => id === mapStyle.id);
     if (!style)
       console.assert(false, {
         message: `style id specified (${mapStyle}) is not valid`,
