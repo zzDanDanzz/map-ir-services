@@ -5,7 +5,7 @@ import googleSatelliteImage from 'assets/images/map-styles/google-satellite.png'
 import googleSatelliteLabelImage from 'assets/images/map-styles/google-satellite-label.png';
 import googleTerrainLabelImage from 'assets/images/map-styles/google-terrain-label.png';
 import googleTerrainTrafficLabelImage from 'assets/images/map-styles/google-terrain-traffic-label.png';
-import mapirXyzStyleImage from 'assets/images/map-styles/mapir-xyz-light-style.png';
+import mapirXyzStyleImage from 'assets/images/map-styles/mapir-xyz-style.png';
 import mapirStyleDarkImage from 'assets/images/map-styles/mapir-style-dark.png';
 import mapirXyzLightStyleImage from 'assets/images/map-styles/mapir-xyz-light-style.png';
 import mapirDoveStyleImage from 'assets/images/map-styles/mapir-Dove-style.png';
